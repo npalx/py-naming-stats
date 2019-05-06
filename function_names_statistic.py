@@ -96,7 +96,7 @@ def get_function_names_in_project(project_path: str) -> List[str]:
     """
     Get function names contained in python files in the directory.
     :param project_path: Path to directory.
-    :return: List with names.
+    :return: List with function names.
     """
     syntax_trees = get_syntax_trees_in_project(project_path)
     function_names = chain.from_iterable(get_function_names_in_tree(tree) for tree in syntax_trees)
@@ -105,7 +105,7 @@ def get_function_names_in_project(project_path: str) -> List[str]:
 
 def get_all_words_in_project(project_path: str) -> List[str]:
     """
-    Get words contained in the function names in the project.
+    Get words contained in function names in project.
     :param project_path: Path to directory.
     :return: List with words.
     """
@@ -143,7 +143,7 @@ def get_top_function_names_in_project(project_path: str, limit: int = TOP_NAMES_
     Get most common function names in the project.
     :param project_path: Path to directory.
     :param limit: Maximum size of the resulting list.
-    :return: List with counted function verbs.
+    :return: List with counted function names.
     """
     function_names = get_function_names_in_project(project_path)
     counted_names = Counter(function_names).most_common(limit)
